@@ -116,26 +116,26 @@ export default class Favourite extends Component {
                 <>
                     <div className="main">
                         <div className="row">
-                            <div className="col-lg-3 col-sm-12">
-                            <ul class="list-group favourites-genres">
+                            <div className="col-lg-3 col-sm-12" style={{}}>
+                            <ul class="list-group favourites-genres" >
                                 {
                                     this.state.genres.map((genre)=>(
                                         this.state.currgen == genre ?
-                                        <li class="list-group-item" style={{background:'#372932',color:'white',fontWeight:'bold', textAlign:'center'}} >{genre}</li> :
-                                        <li class="list-group-item" style={{background:'white',color:'#372932'}} onClick={()=>this.handleGenreChange(genre)}>{genre}</li>
+                                        <li class="list-group-item" style={{border:'1px solid white', borderRadius:'25px', background:'#372932',color:'white',fontWeight:'bold', textAlign:'center'}} >{genre}</li> :
+                                        <li class="list-group-item" style={{border:'1px solid white', borderRadius:'25px', background:'#372932',color:'white', textAlign:'justify', margin:'5px', padding:'5px'}} onClick={()=>this.handleGenreChange(genre)}>{genre}</li>
                                     ))
                                 }
                             </ul>
                             </div>
                             <div className="col-lg-9 favourites-table col-sm-12">
-                                <div className="row">
-                                    <input type="text" className="input-group-text col" placeholder="Buscar película" value={this.state.currText} onChange={(e)=>this.setState({currText:e.target.value})}/>
-                                    <input type="number" className="input-group-text col" placeholder="Rows Count" value={this.state.limit} onChange={(e)=>this.setState({limit:e.target.value})}/>
+                                <div className="row" style={{marginLeft:'35rem', marginBottom:'3em'}}>
+                                    <input type="text" className="input-group-text col" placeholder="Buscar película" style={{marginRight:'2em', padding:'10px', border:'3px solid white', borderRadius:'25px'}} value={this.state.currText} onChange={(e)=>this.setState({currText:e.target.value})}/>
+                                    <input type="number" className="input-group-text col" placeholder="Rows Count" style={{ padding:'10px', border:'3px solid white', borderRadius:'25px'}} value={this.state.limit} onChange={(e)=>this.setState({limit:e.target.value})}/>
                                 </div>
-                                <div className="row">
+                                <div className="row" style={{marginLeft:'25rem'}}>
                                 <table class="table" style={{color:'white'}}>
                                     <thead>
-                                        <tr style={{margin:'50px'}}>
+                                        <tr style={{margin:'70px'}}>
                                         <th scope="col">Título</th>
                                         <th scope="col">Género</th>
                                         <th scope="col"><i class="fas fa-sort-up" onClick={this.sortPopularityDesc}/>Popularidad<i class="fas fa-sort-down" onClick={this.sortPopularityAsc}></i></th>
@@ -151,7 +151,7 @@ export default class Favourite extends Component {
                                                     <td>{genreids[movieObj.genre_ids[0]]}</td>
                                                     <td>{movieObj.popularity}</td>
                                                     <td>{movieObj.vote_average}</td>
-                                                    <td><button type="button" class="btn btn-danger" onClick={()=>this.handleDelete(movieObj.id)} style={{backgroundColor:'#372932', border:'3px solid white', borderRadius:'25px', cursor:'pointer', color:'white'}}>Eliminar</button></td>
+                                                    <td><button type="button" class="btn btn-danger" onClick={()=>this.handleDelete(movieObj.id)} style={{backgroundColor:'#372932', border:'3px solid white', borderRadius:'25px', cursor:'pointer', color:'white', padding:'5px'}}>Eliminar</button></td>
                                                 </tr>
                                             ))
                                         }
