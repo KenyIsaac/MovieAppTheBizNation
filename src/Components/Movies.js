@@ -114,7 +114,7 @@ export default class Movies extends Component {
                                             <div className="button-wrapper" style={{display:'flex',width:'100%',justifyContent:'center'}}>
                                             {
                                                 this.state.hover == movieObj.id &&
-                                                <a className="btn btn-primary movies-button" onClick={()=>this.handleFavourites(movieObj)}>{this.state.favourites.includes(movieObj.id)?"Eliminar de favoritos":"Agregar a favoritos"}</a>
+                                                <a className="btn btn-primary movies-button" style={{backgroundColor:'#372932', border:'3px solid white', borderRadius:'25px', cursor:'pointer'}} onClick={()=>this.handleFavourites(movieObj)}>{this.state.favourites.includes(movieObj.id)?"Eliminar de favoritos":"Agregar a favoritos"}</a>
                                             }
                                             </div>
                                        

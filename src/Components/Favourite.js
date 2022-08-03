@@ -14,8 +14,8 @@ export default class Favourite extends Component {
         }
     }
     componentDidMount(){
-        let genreids = {28:'Action',12:'Adventure',16:'Animation',35:'Comedy',80:'Crime',99:'Documentary',18:'Drama',10751:'Family',14:'Fantasy',36:'History',
-                        27:'Horror',10402:'Music',9648:'Mystery',10749:'Romance',878:'Sci-Fi',10770:'TV',53:'Thriller',10752:'War',37:'Western'};
+        let genreids = {28:'Acción',12:'Aventura',16:'Animación',35:'Comedia',80:'Crimen',99:'Documentales',18:'Drama',10751:'Familiar',14:'Fantasía',36:'Historia',
+                        27:'Horror',10402:'Musicales',9648:'Mistero',10749:'Romance',878:'Sci-Fi',10770:'TV',53:'Terror',10752:'Guerra',37:'Oeste'};
         let data = JSON.parse(localStorage.getItem("movies-app") || "[]")
         let temp = []
         data.forEach((movieObj)=>{
@@ -23,7 +23,7 @@ export default class Favourite extends Component {
                 temp.push(genreids[movieObj.genre_ids[0]]);
             }
          })
-         temp.unshift('All Genres');
+         temp.unshift('Todos los géneros');
          this.setState({
              genres:[...temp],
              movies:[...data]
@@ -121,8 +121,8 @@ export default class Favourite extends Component {
                                 {
                                     this.state.genres.map((genre)=>(
                                         this.state.currgen == genre ?
-                                        <li class="list-group-item" style={{background:'#3f51b5',color:'white',fontWeight:'bold'}} >{genre}</li> :
-                                        <li class="list-group-item" style={{background:'white',color:'#3f51b5'}} onClick={()=>this.handleGenreChange(genre)}>{genre}</li>
+                                        <li class="list-group-item" style={{background:'#372932',color:'white',fontWeight:'bold'}} >{genre}</li> :
+                                        <li class="list-group-item" style={{background:'white',color:'#372932'}} onClick={()=>this.handleGenreChange(genre)}>{genre}</li>
                                     ))
                                 }
                             </ul>
@@ -133,7 +133,7 @@ export default class Favourite extends Component {
                                     <input type="number" className="input-group-text col" placeholder="Rows Count" value={this.state.limit} onChange={(e)=>this.setState({limit:e.target.value})}/>
                                 </div>
                                 <div className="row">
-                                <table class="table">
+                                <table class="table" style={{color:'white'}}>
                                     <thead>
                                         <tr>
                                         <th scope="col">Título</th>
@@ -151,7 +151,7 @@ export default class Favourite extends Component {
                                                     <td>{genreids[movieObj.genre_ids[0]]}</td>
                                                     <td>{movieObj.popularity}</td>
                                                     <td>{movieObj.vote_average}</td>
-                                                    <td><button type="button" class="btn btn-danger" onClick={()=>this.handleDelete(movieObj.id)}>Eliminar</button></td>
+                                                    <td><button type="button" class="btn btn-danger" onClick={()=>this.handleDelete(movieObj.id)} style={{backgroundColor:'#372932', border:'3px solid white', borderRadius:'25px', cursor:'pointer', color:'white'}}>Eliminar</button></td>
                                                 </tr>
                                             ))
                                         }
