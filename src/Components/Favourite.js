@@ -85,8 +85,8 @@ export default class Favourite extends Component {
         localStorage.setItem("movies-app",JSON.stringify(newarr))
     }
     render() {
-        let genreids = {28:'Action',12:'Adventure',16:'Animation',35:'Comedy',80:'Crime',99:'Documentary',18:'Drama',10751:'Family',14:'Fantasy',36:'History',
-                        27:'Horror',10402:'Music',9648:'Mystery',10749:'Romance',878:'Sci-Fi',10770:'TV',53:'Thriller',10752:'War',37:'Western'};
+        let genreids = {28:'Acción',12:'Aventura',16:'Animación',35:'Comedia',80:'Crimen',99:'Documentales',18:'Drama',10751:'Familiar',14:'Fantasía',36:'Historia',
+        27:'Horror',10402:'Musicales',9648:'Mistero',10749:'Romance',878:'Sci-Fi',10770:'TV',53:'Terror',10752:'Guerra',37:'Oeste'};
         
         let filterarr = [];
 
@@ -121,7 +121,7 @@ export default class Favourite extends Component {
                                 {
                                     this.state.genres.map((genre)=>(
                                         this.state.currgen == genre ?
-                                        <li class="list-group-item" style={{background:'#372932',color:'white',fontWeight:'bold'}} >{genre}</li> :
+                                        <li class="list-group-item" style={{background:'#372932',color:'white',fontWeight:'bold', textAlign:'center'}} >{genre}</li> :
                                         <li class="list-group-item" style={{background:'white',color:'#372932'}} onClick={()=>this.handleGenreChange(genre)}>{genre}</li>
                                     ))
                                 }
@@ -129,13 +129,13 @@ export default class Favourite extends Component {
                             </div>
                             <div className="col-lg-9 favourites-table col-sm-12">
                                 <div className="row">
-                                    <input type="text" className="input-group-text col" placeholder="Search" value={this.state.currText} onChange={(e)=>this.setState({currText:e.target.value})}/>
+                                    <input type="text" className="input-group-text col" placeholder="Buscar película" value={this.state.currText} onChange={(e)=>this.setState({currText:e.target.value})}/>
                                     <input type="number" className="input-group-text col" placeholder="Rows Count" value={this.state.limit} onChange={(e)=>this.setState({limit:e.target.value})}/>
                                 </div>
                                 <div className="row">
                                 <table class="table" style={{color:'white'}}>
                                     <thead>
-                                        <tr>
+                                        <tr style={{margin:'50px'}}>
                                         <th scope="col">Título</th>
                                         <th scope="col">Género</th>
                                         <th scope="col"><i class="fas fa-sort-up" onClick={this.sortPopularityDesc}/>Popularidad<i class="fas fa-sort-down" onClick={this.sortPopularityAsc}></i></th>
