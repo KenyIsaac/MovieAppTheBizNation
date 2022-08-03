@@ -106,6 +106,7 @@ export default class Movies extends Component {
                         <div className="movies-list">
                             {
                                 this.state.movies.map((movieObj)=>(
+                                    
                                     <div className="card movies-card" onMouseEnter={()=>this.setState({hover:movieObj.id})} onMouseLeave={()=>this.setState({hover:''})}>
                                         <img src={`https://image.tmdb.org/t/p/original${movieObj.backdrop_path}`}  alt={movieObj.title} className="card-img-top movies-img"/>
                                

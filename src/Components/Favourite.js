@@ -138,8 +138,8 @@ export default class Favourite extends Component {
                                         <tr style={{margin:'70px'}}>
                                         <th scope="col">Título</th>
                                         <th scope="col">Género</th>
-                                        <th scope="col"><i class="fas fa-sort-up" onClick={this.sortPopularityDesc}/>Popularidad<i class="fas fa-sort-down" onClick={this.sortPopularityAsc}></i></th>
-                                        <th scope="col"><i class="fas fa-sort-up" onClick={this.sortRatingDesc}></i>Rating<i class="fas fa-sort-down" onClick={this.sortRatingAsc}></i></th>
+                                        <th scope="col"><i class="fas fa-sort-up" onClick={this.sortPopularityDesc} style={{marginRight:'20px'}}/>Popularidad<i class="fas fa-sort-down" onClick={this.sortPopularityAsc}></i></th>
+                                        <th scope="col"><i class="fas fa-sort-up" onClick={this.sortRatingDesc} style={{marginLeft:'5em'}}></i>Rating<i class="fas fa-sort-down" onClick={this.sortRatingAsc}></i></th>
                                         <th scope="col"></th>
                                         </tr>
                                     </thead>
@@ -147,18 +147,18 @@ export default class Favourite extends Component {
                                         {
                                             filterarr.map((movieObj)=>(
                                                 <tr>
-                                                    <td><img src={`https://image.tmdb.org/t/p/original${movieObj.backdrop_path}`} alt={movieObj.title} style={{width:'5rem'}}/> {movieObj.original_title}</td>
-                                                    <td>{genreids[movieObj.genre_ids[0]]}</td>
-                                                    <td>{movieObj.popularity}</td>
-                                                    <td>{movieObj.vote_average}</td>
-                                                    <td><button type="button" class="btn btn-danger" onClick={()=>this.handleDelete(movieObj.id)} style={{backgroundColor:'#372932', border:'3px solid white', borderRadius:'25px', cursor:'pointer', color:'white', padding:'5px'}}>Eliminar</button></td>
+                                                    <td><img src={`https://image.tmdb.org/t/p/original${movieObj.backdrop_path}`} alt={movieObj.title} style={{width:'10rem', marginRight: '1rem'}}/> {movieObj.original_title}</td>
+                                                    <td style={{width:'10rem', marginRight: '1rem'}}>{genreids[movieObj.genre_ids[0]]}</td>
+                                                    <td style={{marginLeft: '5px'}}>{movieObj.popularity}</td>
+                                                    <td style={{marginLeft: '5px'}}>{movieObj.vote_average}</td>
+                                                    <td style={{marginLeft:'10px'}}><button type="button" class="btn btn-danger" onClick={()=>this.handleDelete(movieObj.id)} style={{backgroundColor:'#372932', border:'3px solid white', borderRadius:'25px', cursor:'pointer', color:'white', padding:'5px'}}>Eliminar</button></td>
                                                 </tr>
                                             ))
                                         }
                                     </tbody>
                                     </table>
                                 </div>
-                                <nav aria-label="Page navigation example">
+                                <nav aria-label="Página de navegación">
                                     <ul class="pagination">
                                         {
                                             pagesarr.map((page)=>(
