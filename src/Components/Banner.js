@@ -1,6 +1,7 @@
 import {movies} from './getMovies';
 import React, { Component } from 'react';
 import Video from '../video-baner.mp4';
+import Imag from '../ima-banner.png';
 
 export default class Banner extends Component {
     
@@ -17,8 +18,7 @@ export default class Banner extends Component {
                 <video width="100%" height="70%" autoPlay loop muted>
                         <source src={Video} type="video/mp4" />
                 </video>
-
-                
+                <img src={Imag} alt='Movie Banner' style={{marginLeft:'550px'}} />                
                
                 </div>
             }
